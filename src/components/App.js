@@ -1,53 +1,57 @@
-
 import React, { useState } from "react";
 import './../styles/App.css';
 
-const App = () => {
-  const [budget,setBudget] = useState(0);
-const obj = {apple:20,banana:10,neutella:30,razor:5,CornFlakes:15 ,SoundBar:50,Iphone:80}
+const items = [
+  {
+    name: "Apple",
+    price: 20
+  },
+  {
+    name: "Banana",
+    price: 10
+  },
+  {
+    name: "Neutella",
+    price: 30
+  },
+  {
+    name: "Razor",
+    price: 5
+  },
+  {
+    name: "CornFlakes",
+    price: 15
+  },
+  {
+    name: "Sound Bar",
+    price: 50
+  },
+  {
+    name: "Iphone",
+    price: 80
+  }
+];
+export default function App() {
+  let [budget, setBudget] = useState("");
   return (
-    <div>
-        <h2>Enter your budget to check available item</h2>
-        <input type="number" value={budget} onChange={(e) => setBudget(e.target.value)}></input>
-        <div>
-          <h3>item you can buy are in green color </h3>
-          <table>
-              <tbody>
-                <tr>
-                  <td>Apple</td>
-                  <td className={obj.apple>=budget?"green":"red"}>20</td>
-                </tr>
-                <tr>
-                  <td>Banana</td>
-                  <td className={obj.banana>=budget?"green":"red"}>10</td>
-                </tr>
-                <tr>
-                  <td>Neutella</td>
-                  <td className={obj.neutella>=budget?"green":"red"}>30</td>
-                </tr>
-                <tr>
-                  <td>Razor</td>
-                  <td className={obj.razor>=budget?"green":"red"}>5</td>
-                </tr>
-                <tr>
-                  <td>CornFlakes</td>
-                  <td className={obj.CornFlakes>=budget?"green":"red"}>15</td>
-                </tr>
-                <tr>
-                  <td >Sound Bar</td>
-                  <td  className={obj.SoundBar>=budget?"green":"red"}>50</td>
-                </tr>
-                <tr>
-                  <td>Iphone</td>
-                  <td className={obj.Iphone>=budget?"green":"red"}>80</td>
-                </tr>
-                
-              </tbody>
-          </table>
-             
-        </div>
+    <div className="App">
+      <p>
+        <b>Enter your budget to check available items:</b>
+      </p>
+      <input type="number" onChange={(e)=> setBudget(e.target.value)} />
+      <table>
+      <thead className="headings">
+          <th>Items you can buy are in Green color</th>
+      </thead>
+      <tbody className="items">
+      {items.map((item) => (
+          <tr>
+            <td>{item.name}</td>
+            {budget>= item.price ? (<td style={{color: "green"}}>{item.price}</td>) : (<td style={{color: "red"}}>{item.price}</td>)}
+          </tr>
+      ))}
+      </tbody>
+      </table>
     </div>
-  )
+  );
 }
-
-export default App
