@@ -11,15 +11,40 @@ const obj = {apple:20,banana:10,neutella:30,razor:5,CornFlakes:15 ,SoundBar:50,I
         <input type="number" value={budget} onChange={(e) => setBudget(e.target.value)}></input>
         <div>
           <h3>item you can buy are in green color </h3>
-          <ul>
-             <li> <span>Apple</span> <span className={obj.apple>=budget?"green":"red"}>20</span></li>
-             <li> <span>Banana</span> <span className={obj.banana>=budget?"green":"red"}>10</span></li>
-             <li> <span>Neutella</span> <span className={obj.neutella>=budget?"green":"red"}>30</span></li>
-             <li> <span>Razor</span> <span className={obj.razor>=budget?"green":"red"}>5</span></li>
-             <li> <span>CornFlakes</span> <span className={obj.CornFlakes>=budget?"green":"red"}>15</span></li>
-             <li> <span>Sound Bar</span> <span className={obj.SoundBar>=budget?"green":"red"}>50</span></li>
-             <li> <span>Iphone</span> <span className={obj.Iphone>=budget?"green":"red"}>80</span></li>
-          </ul> 
+          <table>
+              <tbody>
+                <tr>
+                  <td>Apple</td>
+                  <td className={obj.apple>=budget?"green":"red"}>20</td>
+                </tr>
+                <tr>
+                  <td>Banana</td>
+                  <td className={obj.banana>=budget?"green":"red"}>10</td>
+                </tr>
+                <tr>
+                  <td>Neutella</td>
+                  <td className={obj.neutella>=budget?"green":"red"}>30</td>
+                </tr>
+                <tr>
+                  <td>Razor</td>
+                  <td className={obj.razor>=budget?"green":"red"}>5</td>
+                </tr>
+                <tr>
+                  <td>CornFlakes</td>
+                  <td className={obj.CornFlakes>=budget?"green":"red"}>15</td>
+                </tr>
+                <tr>
+                  <td >Sound Bar</td>
+                  <td  className={obj.SoundBar>=budget?"green":"red"}>50</td>
+                </tr>
+                <tr>
+                  <td>Iphone</td>
+                  <td className={obj.Iphone>=budget?"green":"red"}>80</td>
+                </tr>
+                
+              </tbody>
+          </table>
+             
         </div>
     </div>
   )
